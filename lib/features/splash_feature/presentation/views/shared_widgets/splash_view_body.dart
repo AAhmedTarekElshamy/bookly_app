@@ -16,21 +16,19 @@ class SplashBody extends StatefulWidget {
 
 class _SplashBodyState extends State<SplashBody>
     with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<Offset> slidingAnimation;
+  late final AnimationController _animationController;
+  late final Animation<Offset> _slidingAnimation;
+
   @override
   void initState() {
-    initSlidingAnimation(animationController: animationController,slidingAnimation: slidingAnimation);
-    NavigateToHomeView();
-
-
     super.initState();
+    _initSlidingAnimation();
+    _navigateToHomeView();
   }
 
   @override
   void dispose() {
-    animationController.dispose();
-
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -40,37 +38,36 @@ class _SplashBodyState extends State<SplashBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(
-          AssetsData.logo,
-        ),
-        SlidingText(slidingAnimation: slidingAnimation,),
+        Image.asset(AssetsData.logo),
+        SlidingText(slidingAnimation: _slidingAnimation),
       ],
     );
   }
-  void initSlidingAnimation({required AnimationController animationController,required Animation slidingAnimation} ){
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 7), end: Offset.zero)
-            .animate(animationController);
 
-    animationController.forward();
-    slidingAnimation.addListener(() {
-      setState(() {});
-    });
+  void _initSlidingAnimation() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    _slidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 7),
+      end: Offset.zero,
+    ).animate(_animationController);
 
+    _animationController.forward();
   }
 
-  void NavigateToHomeView(){
-    Future.delayed( Duration(milliseconds: 250),(){
-      Navigator.push(context, MaterialPageRoute(builder: (context){
-        return HomeView();
+  void _navigateToHomeView() {
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return const HomeView();
       }));
     });
   }
-
-
-
-
 }
+
+
+
+
+
 
