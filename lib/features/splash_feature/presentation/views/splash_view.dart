@@ -1,4 +1,5 @@
-import 'package:bookly_app/features/splash_feature/views/shared_widgets/splash_view_body.dart';
+
+import 'package:bookly_app/features/splash_feature/presentation/views/shared_widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
