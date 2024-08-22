@@ -3,6 +3,7 @@ import 'package:bookly_app/core/utility/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../../../../constants.dart';
@@ -22,38 +23,36 @@ class HomeViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-             child:  Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-                  CustomAppBar(),
-                  SizedBox(
-                    height: 25,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBar(),
+                SizedBox(
+                  height: 25,
+                ),
+                FeaturedBooksListView(),
+                SizedBox(
+                  height: 35,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Best Seller',
+                        style: Styles.titleMedium,
+                      ),
+                    ],
                   ),
-                  FeaturedBooksListView(),
-                  SizedBox(
-                    height: 35,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Best Seller',
-                          style: Styles.titleMedium,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
-              ),
-
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                     (context, index) => CustomBestSellerItem(),
@@ -66,6 +65,7 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+
 
 
 

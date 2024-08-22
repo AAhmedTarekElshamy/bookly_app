@@ -9,7 +9,7 @@ class BestSellerListView extends StatelessWidget {
     return   SizedBox(
         height:  MediaQuery.of(context).size.height*0.40 ,
         child: ListView.builder(
-          shrinkWrap: true,
+          shrinkWrap: false,
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context,index)=>CustomBestSellerItem(),
         itemCount: 15,
