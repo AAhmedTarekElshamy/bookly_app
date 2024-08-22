@@ -15,5 +15,9 @@ abstract class Styles{
     decoration:TextDecoration.none,
 
   );
+  static const textStyle18=TextStyle(
+fontSize: 18,
+    fontWeight: FontWeight.w600,
+  );
 
 }

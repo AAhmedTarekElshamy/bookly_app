@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomBestSellerItem extends StatelessWidget {
@@ -7,26 +8,33 @@ class CustomBestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(
-      //  // color: Colors.red,
+      //   color: Colors.red,
       // ),
+      margin:const EdgeInsets.only(bottom: 12),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.20,
-      padding: const EdgeInsets.symmetric(
-          horizontal: 16, vertical: 10), // Optional padding
+
       child: Row(
         children: [
           Column(
             children: [
-              Container(
-                height: 110,
-                width: 80, // Adjusted width for image container
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('lib/assets/images/testBestSeller.png'),
-                    fit: BoxFit.cover, // Ensures the image fits the container
+              SizedBox(
+                height:  MediaQuery.of(context).size.height*0.20 ,
+                child: AspectRatio(
+                  aspectRatio: 2.5/4,
+                  child: Container(
+
+                    //height: 110,
+                    width: 80, // Adjusted width for image container
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage('lib/assets/images/testBestSeller.png'),
+                        fit: BoxFit.cover, // Ensures the image fits the container
+                      ),
+                      borderRadius:
+                          BorderRadius.circular(8), // Optional rounded corners
+                    ),
                   ),
-                  borderRadius:
-                      BorderRadius.circular(8), // Optional rounded corners
                 ),
               ),
             ],
@@ -38,10 +46,15 @@ class CustomBestSellerItem extends StatelessWidget {
               mainAxisAlignment:
                   MainAxisAlignment.start, // Vertically centers the content
               children: [
+                SizedBox(
+                  height: 15,
+                ),
                 Text(
                   'Harry Potter\nand the Goblet of Fire',
+                  maxLines:2,
                   style: TextStyle(
-                    fontSize: 16,
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     decoration: TextDecoration.none,
@@ -52,7 +65,7 @@ class CustomBestSellerItem extends StatelessWidget {
                   'J.K. Rowling',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                   ),
@@ -64,7 +77,7 @@ class CustomBestSellerItem extends StatelessWidget {
                       '19.99\€',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 22,
                         color: Colors.white,
                         decoration: TextDecoration.none,
                       ),
@@ -83,7 +96,7 @@ class CustomBestSellerItem extends StatelessWidget {
                         width:
                             4), // Small spacing between star rating and count
                     Text(
-                      ' (2930)',
+                      '(2930)',
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 16,
