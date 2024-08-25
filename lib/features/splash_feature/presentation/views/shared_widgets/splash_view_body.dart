@@ -1,7 +1,9 @@
+import 'package:bookly_app/core/utility/app_router.dart';
 import 'package:bookly_app/features/splash_feature/presentation/views/shared_widgets/sliding_text.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utility/assets.dart';
 import '../../../../home/presentation/views/home_view.dart';
@@ -59,9 +61,7 @@ class _SplashBodyState extends State<SplashBody>
 
   void _navigateToHomeView() {
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return const HomeView();
-      }));
+       GoRouter.of(context).push(AppRouter.kHomeView);
     });
   }
 }
