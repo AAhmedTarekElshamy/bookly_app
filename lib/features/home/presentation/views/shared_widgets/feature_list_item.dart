@@ -11,7 +11,7 @@ class FeatureListViewItem extends StatelessWidget {
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
 
               image: const DecorationImage(
                   image: AssetImage('lib/assets/images/test_list_Item.png'),
