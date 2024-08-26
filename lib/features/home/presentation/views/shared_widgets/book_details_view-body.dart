@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'feature_list_item.dart';
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
 
@@ -13,19 +15,8 @@ class BookDetailsViewBody extends StatelessWidget {
 
              child: SizedBox(
                height: MediaQuery.of(context).size.height/3,
-               child: AspectRatio(
-                 aspectRatio: 2.7/4,
-                 child: Container(
-                     decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(12),
-                     image: DecorationImage(
-                        image: AssetImage('lib/assets/images/test_list_Item.png',),
-                       fit: BoxFit.fill,
+               child:  FeatureListViewItem(),
 
-                     )
-                   )
-                 ),
-               ),
              ),
           )
         ],
@@ -33,3 +24,4 @@ class BookDetailsViewBody extends StatelessWidget {
     );
   }
 }
+// MediaQuery.of(context).size.height/3,
