@@ -104,7 +104,7 @@ class CustomBestSellerItem extends StatelessWidget {
                       Text(
                         '(2930)',
                         style: TextStyle(
-                          color: Colors.grey,
+                          color: Color(0xff848293),
                           fontSize: 16,
                           decoration: TextDecoration.none,
                         ),
