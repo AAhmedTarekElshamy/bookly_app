@@ -1,14 +1,11 @@
-import 'dart:ui';
 import 'package:bookly_app/core/utility/styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
+import 'similar_books_list_view.dart';
 import 'book_action.dart';
 import 'feature_list_item.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +16,11 @@ class BookDetailsViewBody extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.25),
-              child: FeatureListViewItem(),
+              padding: EdgeInsets.symmetric(horizontal: width * 0.27),
+              child: const FeatureListViewItem(),
             ),
-            SizedBox(
-              height: 43,
+            const SizedBox(
+              height: 30,
             ),
             Text(
               'The Jungle book',
@@ -31,7 +28,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 6,
             ),
             Opacity(
@@ -44,7 +41,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 18,
             ),
             const Center(
@@ -72,36 +69,29 @@ class BookDetailsViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 25,
             ),
-            BookAction(),
+            const BookAction(),
+            const SizedBox(
+              height: 33,
+            ),
+            const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'You can also like',
+                  style: Styles.textStyle18,
+                )),
+            const SizedBox(
+              height: 15,
+            ),
+            const SimilarBooksListView(),
+            const Expanded(
+              child: SizedBox(),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-// MediaQuery.of(context).size.height/3,
-
-// Container(
-//   height: 50,
-//   width: 170,
-//   decoration: BoxDecoration(
-//     color: Color(0xfff18263),
-//     borderRadius: BorderRadius.only(
-//         topRight: Radius.circular(16),
-//         bottomRight: Radius.circular(16)),
-//   ),
-//   child: const Center(
-//     child: Text(
-//       'free preview',
-//       style: TextStyle(
-//         color: Colors.white,
-//         fontSize: 18,
-//         fontWeight: FontWeight.bold,
-//       ),
-//     ),
-//   ),
-// ),
