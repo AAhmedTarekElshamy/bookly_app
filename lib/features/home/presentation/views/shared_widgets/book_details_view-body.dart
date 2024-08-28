@@ -10,88 +10,105 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.27),
-              child: const FeatureListViewItem(),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Text(
-              'The Jungle book',
-              style: Styles.textStyle30.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            Opacity(
-              opacity: 0.7,
-              child: Text(
-                'Rudyard Kipling',
-                style: Styles.textStyle18.copyWith(
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w500,
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child:Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Center(
+
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.27),
+                      child: const FeatureListViewItem(),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      'The Jungle book',
+                      style: Styles.textStyle30.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    Opacity(
+                      opacity: 0.7,
+                      child: Text(
+                        'Rudyard Kipling',
+                        style: Styles.textStyle18.copyWith(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    const Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '⭐',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          Text(
+                            ' 4.8 ',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          ),
+                          Text(
+                            ' (2243) ',
+                            style: TextStyle(
+                                color: Color(0xff848293),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    const BookAction(),
+                    const SizedBox(
+                      height: 33,
+                    ),
+                    const Expanded(
+                      child: SizedBox(),
+                    ),
+                    const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'You can also like',
+                          style: Styles.textStyle18,
+                        )),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const SimilarBooksListView(),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                  ],
                 ),
               ),
             ),
-            const SizedBox(
-              height: 18,
-            ),
-            const Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '⭐',
-                    style: TextStyle(fontSize: 14),
-                  ),
-                  Text(
-                    ' 4.8 ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                  ),
-                  Text(
-                    ' (2243) ',
-                    style: TextStyle(
-                        color: Color(0xff848293),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            const BookAction(),
-            const SizedBox(
-              height: 33,
-            ),
-            const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'You can also like',
-                  style: Styles.textStyle18,
-                )),
-            const SizedBox(
-              height: 15,
-            ),
-            const SimilarBooksListView(),
-            const Expanded(
-              child: SizedBox(),
-            ),
-          ],
-        ),
-      ),
+          ) ,
+
+      ],
     );
+
+
+
+
+
   }
 }
