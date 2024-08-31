@@ -27,7 +27,7 @@ class SearchViewBody extends StatelessWidget {
                     height: 45,
                   ),
                   Opacity(
-                    opacity: .8,
+                    opacity:0.8,
                     child: Text('Search Result',style: Styles.textStyle18.copyWith(
                       fontSize: 22,
                     ),),
