@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'custom_best_seller_item.dart';
+import 'custom_book_item.dart';
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});
 
@@ -11,7 +11,7 @@ class BestSellerListView extends StatelessWidget {
         child: ListView.builder(
           shrinkWrap: false,
             physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (context,index)=>CustomBestSellerItem(),
+            itemBuilder: (context,index)=>const CustomBookItem(),
         itemCount: 15,
         ),
 

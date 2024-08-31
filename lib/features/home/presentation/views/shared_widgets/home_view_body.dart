@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 import '../../../../../constants.dart';
 
 import 'custom_app_bar.dart';
-import 'custom_best_seller_item.dart';
+import 'custom_book_item.dart';
 
 import 'featured_books_list_view.dart';
 
@@ -55,7 +55,7 @@ class HomeViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
-                    (context, index) => CustomBestSellerItem(),
+                    (context, index) => const CustomBookItem(),
                 childCount: 5,  // Number of items in the BestSellerListView
               ),
             ),
