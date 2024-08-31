@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/search/presentation/views/widgets/search_result_list_view.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utility/styles.dart';
@@ -10,32 +10,48 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 25,
-          ),
-          const  CustomTextField(),
-          const  SizedBox(
-            height: 45,
-          ),
-          Opacity(
-            opacity: .8,
-            child: Text('Search Result',style: Styles.textStyle18.copyWith(
-              fontSize: 22,
-            ),),
-          ),
+    return   CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+           child:  Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const  CustomTextField(),
+                  const  SizedBox(
+                    height: 45,
+                  ),
+                  Opacity(
+                    opacity: .8,
+                    child: Text('Search Result',style: Styles.textStyle18.copyWith(
+                      fontSize: 22,
+                    ),),
+                  ),
 
-          const    SizedBox(
-            height: 25,
+                  const    SizedBox(
+                    height: 25,
+                  ),
+
+                ],
+              ),
+            )
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+                  (context, index) => const CustomBookItem(),
+              childCount: 15,  // Number of items in the BestSellerListView
+            ),
           ),
-          const  SearchResultListView(),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
+
