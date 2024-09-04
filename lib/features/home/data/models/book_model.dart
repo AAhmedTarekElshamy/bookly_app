@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'book_model.g.dart';
 
 @JsonSerializable()
-class Book {
+class BookModel {
   final String kind;
   final String id;
   final String etag;
@@ -13,7 +13,7 @@ class Book {
   final AccessInfo accessInfo;
   final SearchInfo searchInfo;
 
-  Book({
+  BookModel({
     required this.kind,
     required this.id,
     required this.etag,
@@ -24,7 +24,7 @@ class Book {
     required this.searchInfo,
   });
 
-  factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
+  factory BookModel.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
   Map<String, dynamic> toJson() => _$BookToJson(this);
 }
 
