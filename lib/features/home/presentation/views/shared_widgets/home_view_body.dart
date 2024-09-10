@@ -26,12 +26,12 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(),
-                SizedBox(
+                const CustomAppBar(),
+                const SizedBox(
                   height: 25,
                 ),
-                FeaturedBooksListView(),
-                SizedBox(
+                const FeaturedBooksListView(),
+                const SizedBox(
                   height: 35,
                 ),
                 Padding(
@@ -45,7 +45,7 @@ class HomeViewBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const   SizedBox(
                   height: 20,
                 ),
               ],
@@ -54,6 +54,7 @@ class HomeViewBody extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             sliver: SliverList(
+
               delegate: SliverChildBuilderDelegate(
                     (context, index) => const CustomBookItem(),
                 childCount: 5,  // Number of items in the BestSellerListView

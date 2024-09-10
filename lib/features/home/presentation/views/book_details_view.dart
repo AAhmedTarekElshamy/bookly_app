@@ -14,7 +14,7 @@ class BookDetailsView extends StatelessWidget {
         backgroundColor: kPrimaryColor,
         title: IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             size: 28,
           ),
@@ -22,13 +22,13 @@ class BookDetailsView extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.shopping_cart_outlined,
                 size: 28,
               ))
         ],
       ),
-      body: BookDetailsViewBody(),
+      body: const BookDetailsViewBody(),
     );
   }
 }
