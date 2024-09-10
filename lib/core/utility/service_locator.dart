@@ -7,7 +7,7 @@ import '../../features/home/repositry/home_repo_implement.dart';
 
 final getIt = GetIt.instance;
 
-void setup() {
+void setupGetIt() {
   getIt.registerSingleton<ApiService>(ApiService(dio: Dio()));                                                                                                                                                                                                                                                                                                                                                                    // Alternatively you could write it if you don't like global variables
   getIt.registerSingleton<HomeRepoImp>(HomeRepoImp(apiService:getIt.get<ApiService>() ));
 }

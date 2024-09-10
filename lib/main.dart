@@ -14,6 +14,7 @@ import 'features/splash_feature/presentation/views/splash_view.dart';
 
 
 void main() {
+  setupGetIt();
   runApp(const BooklyApp());
 
 }
