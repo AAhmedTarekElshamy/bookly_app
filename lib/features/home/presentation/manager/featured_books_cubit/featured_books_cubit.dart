@@ -16,7 +16,7 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksStates>{
      ));
       }, (books) {
      emit(SuccessState(list:books ));
-     //io
+
     });
   }
 }
