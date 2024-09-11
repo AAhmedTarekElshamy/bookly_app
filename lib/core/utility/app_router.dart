@@ -15,13 +15,13 @@ abstract class AppRouter {
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
-        path: '/SplashView',
+        path: '/',
         builder: (context, GoRouterState state) {
           return const SplashView();
         },
       ),
       GoRoute(
-          path:'/' ,
+          path:kSearchView,
           builder: (context, GoRouterState state) {
             return const SearchView();
           },
@@ -34,7 +34,7 @@ abstract class AppRouter {
       ),
       GoRoute(
           path: kbookDetailsView,
-        builder: (context,GoRouterState state)=>BookDetailsView(),
+        builder: (context,GoRouterState state)=>const BookDetailsView(),
       ),
 
     ],

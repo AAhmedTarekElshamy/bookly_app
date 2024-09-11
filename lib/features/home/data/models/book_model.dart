@@ -4,24 +4,24 @@ part 'book_model.g.dart';
 
 @JsonSerializable()
 class BookModel {
-  final String kind;
-  final String id;
-  final String etag;
-  final String selfLink;
-  final VolumeInfo volumeInfo;
-  final SaleInfo saleInfo;
-  final AccessInfo accessInfo;
-  final SearchInfo searchInfo;
+  final String? kind;
+  final String? id;
+  final String? etag;
+  final String? selfLink;
+  final VolumeInfo? volumeInfo;
+  final SaleInfo? saleInfo;
+  final AccessInfo? accessInfo;
+  final SearchInfo? searchInfo;
 
   BookModel({
-    required this.kind,
-    required this.id,
-    required this.etag,
-    required this.selfLink,
-    required this.volumeInfo,
-    required this.saleInfo,
-    required this.accessInfo,
-    required this.searchInfo,
+    this.kind,
+    this.id,
+    this.etag,
+    this.selfLink,
+    this.volumeInfo,
+    this.saleInfo,
+    this.accessInfo,
+    this.searchInfo,
   });
 
   factory BookModel.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
@@ -30,44 +30,44 @@ class BookModel {
 
 @JsonSerializable()
 class VolumeInfo {
-  final String title;
-  final List<String> authors;
-  final String publishedDate;
-  final String description;
-  final List<IndustryIdentifier> industryIdentifiers;
-  final ReadingModes readingModes;
-  final int pageCount;
-  final String printType;
-  final List<String> categories;
-  final String maturityRating;
-  final bool allowAnonLogging;
-  final String contentVersion;
-  final PanelizationSummary panelizationSummary;
-  final ImageLinks imageLinks;
-  final String language;
-  final String previewLink;
-  final String infoLink;
-  final String canonicalVolumeLink;
+  final String? title;
+  final List<String>? authors;
+  final String? publishedDate;
+  final String? description;
+  final List<IndustryIdentifier>? industryIdentifiers;
+  final ReadingModes? readingModes;
+  final int? pageCount;
+  final String? printType;
+  final List<String>? categories;
+  final String? maturityRating;
+  final bool? allowAnonLogging;
+  final String? contentVersion;
+  final PanelizationSummary? panelizationSummary;
+  final ImageLinks? imageLinks;
+  final String? language;
+  final String? previewLink;
+  final String? infoLink;
+  final String? canonicalVolumeLink;
 
   VolumeInfo({
-    required this.title,
-    required this.authors,
-    required this.publishedDate,
-    required this.description,
-    required this.industryIdentifiers,
-    required this.readingModes,
-    required this.pageCount,
-    required this.printType,
-    required this.categories,
-    required this.maturityRating,
-    required this.allowAnonLogging,
-    required this.contentVersion,
-    required this.panelizationSummary,
-    required this.imageLinks,
-    required this.language,
-    required this.previewLink,
-    required this.infoLink,
-    required this.canonicalVolumeLink,
+    this.title,
+    this.authors,
+    this.publishedDate,
+    this.description,
+    this.industryIdentifiers,
+    this.readingModes,
+    this.pageCount,
+    this.printType,
+    this.categories,
+    this.maturityRating,
+    this.allowAnonLogging,
+    this.contentVersion,
+    this.panelizationSummary,
+    this.imageLinks,
+    this.language,
+    this.previewLink,
+    this.infoLink,
+    this.canonicalVolumeLink,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => _$VolumeInfoFromJson(json);
@@ -76,12 +76,12 @@ class VolumeInfo {
 
 @JsonSerializable()
 class IndustryIdentifier {
-  final String type;
-  final String identifier;
+  final String? type;
+  final String? identifier;
 
   IndustryIdentifier({
-    required this.type,
-    required this.identifier,
+    this.type,
+    this.identifier,
   });
 
   factory IndustryIdentifier.fromJson(Map<String, dynamic> json) => _$IndustryIdentifierFromJson(json);
@@ -90,12 +90,12 @@ class IndustryIdentifier {
 
 @JsonSerializable()
 class ReadingModes {
-  final bool text;
-  final bool image;
+  final bool? text;
+  final bool? image;
 
   ReadingModes({
-    required this.text,
-    required this.image,
+    this.text,
+    this.image,
   });
 
   factory ReadingModes.fromJson(Map<String, dynamic> json) => _$ReadingModesFromJson(json);
@@ -104,12 +104,12 @@ class ReadingModes {
 
 @JsonSerializable()
 class PanelizationSummary {
-  final bool containsEpubBubbles;
-  final bool containsImageBubbles;
+  final bool? containsEpubBubbles;
+  final bool? containsImageBubbles;
 
   PanelizationSummary({
-    required this.containsEpubBubbles,
-    required this.containsImageBubbles,
+    this.containsEpubBubbles,
+    this.containsImageBubbles,
   });
 
   factory PanelizationSummary.fromJson(Map<String, dynamic> json) => _$PanelizationSummaryFromJson(json);
@@ -118,12 +118,12 @@ class PanelizationSummary {
 
 @JsonSerializable()
 class ImageLinks {
-  final String smallThumbnail;
-  final String thumbnail;
+  final String? smallThumbnail;
+  final String? thumbnail;
 
   ImageLinks({
-    required this.smallThumbnail,
-    required this.thumbnail,
+    this.smallThumbnail,
+    this.thumbnail,
   });
 
   factory ImageLinks.fromJson(Map<String, dynamic> json) => _$ImageLinksFromJson(json);
@@ -132,14 +132,14 @@ class ImageLinks {
 
 @JsonSerializable()
 class SaleInfo {
-  final String country;
-  final String saleability;
-  final bool isEbook;
+  final String? country;
+  final String? saleability;
+  final bool? isEbook;
 
   SaleInfo({
-    required this.country,
-    required this.saleability,
-    required this.isEbook,
+    this.country,
+    this.saleability,
+    this.isEbook,
   });
 
   factory SaleInfo.fromJson(Map<String, dynamic> json) => _$SaleInfoFromJson(json);
@@ -148,28 +148,28 @@ class SaleInfo {
 
 @JsonSerializable()
 class AccessInfo {
-  final String country;
-  final String viewability;
-  final bool embeddable;
-  final bool publicDomain;
-  final String textToSpeechPermission;
-  final Epub epub;
-  final Pdf pdf;
-  final String webReaderLink;
-  final String accessViewStatus;
-  final bool quoteSharingAllowed;
+  final String? country;
+  final String? viewability;
+  final bool? embeddable;
+  final bool? publicDomain;
+  final String? textToSpeechPermission;
+  final Epub? epub;
+  final Pdf? pdf;
+  final String? webReaderLink;
+  final String? accessViewStatus;
+  final bool? quoteSharingAllowed;
 
   AccessInfo({
-    required this.country,
-    required this.viewability,
-    required this.embeddable,
-    required this.publicDomain,
-    required this.textToSpeechPermission,
-    required this.epub,
-    required this.pdf,
-    required this.webReaderLink,
-    required this.accessViewStatus,
-    required this.quoteSharingAllowed,
+    this.country,
+    this.viewability,
+    this.embeddable,
+    this.publicDomain,
+    this.textToSpeechPermission,
+    this.epub,
+    this.pdf,
+    this.webReaderLink,
+    this.accessViewStatus,
+    this.quoteSharingAllowed,
   });
 
   factory AccessInfo.fromJson(Map<String, dynamic> json) => _$AccessInfoFromJson(json);
@@ -178,9 +178,9 @@ class AccessInfo {
 
 @JsonSerializable()
 class Epub {
-  final bool isAvailable;
+  final bool? isAvailable;
 
-  Epub({required this.isAvailable});
+  Epub({this.isAvailable});
 
   factory Epub.fromJson(Map<String, dynamic> json) => _$EpubFromJson(json);
   Map<String, dynamic> toJson() => _$EpubToJson(this);
@@ -188,9 +188,9 @@ class Epub {
 
 @JsonSerializable()
 class Pdf {
-  final bool isAvailable;
+  final bool? isAvailable;
 
-  Pdf({required this.isAvailable});
+  Pdf({this.isAvailable});
 
   factory Pdf.fromJson(Map<String, dynamic> json) => _$PdfFromJson(json);
   Map<String, dynamic> toJson() => _$PdfToJson(this);
@@ -198,9 +198,9 @@ class Pdf {
 
 @JsonSerializable()
 class SearchInfo {
-  final String textSnippet;
+  final String? textSnippet;
 
-  SearchInfo({required this.textSnippet});
+  SearchInfo({this.textSnippet});
 
   factory SearchInfo.fromJson(Map<String, dynamic> json) => _$SearchInfoFromJson(json);
   Map<String, dynamic> toJson() => _$SearchInfoToJson(this);

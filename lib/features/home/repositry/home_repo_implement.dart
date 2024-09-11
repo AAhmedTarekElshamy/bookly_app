@@ -40,24 +40,24 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      // Fetch data from API
-      var data = await apiService.get(
-          endPoint: 'volumes?q=programming&filter=free-ebooks ');
-      // Initialize list of books
       List<BookModel> books = [];
-      // Parse books from the response
-      for (var item in data?['items']) {
-        books.add(BookModel.fromJson(item));
+      var data = await apiService.get(endPoint:'volumes?q=programming&filter=free-ebooks');
+
+      if (data != null && data['items'] != null) { // Using null-aware operator to check if 'items' exists
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item ?? {}));
+        }
       }
+
       return Right(books);
     } catch (e) {
-      // Catch and handle server error
       if (e is DioException) {
         return Left(ServerFailure.DioException(e));
       } else {
-        return Left(ServerFailure(errorMsg: 'Unknown error occurred'));
+        return Left(ServerFailure(errorMsg: e.toString()));
       }
     }
-
   }
+
+
 }
