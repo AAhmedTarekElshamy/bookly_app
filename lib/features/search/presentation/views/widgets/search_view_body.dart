@@ -41,15 +41,15 @@ class SearchViewBody extends StatelessWidget {
               ),
             )
         ),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          sliver: SliverList(
-            delegate: SliverChildBuilderDelegate(
-                  (context, index) => const CustomBookItem(),
-              childCount: 15,  // Number of items in the BestSellerListView
-            ),
-          ),
-        ),
+        // SliverPadding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 30),
+        //   sliver: SliverList(
+        //     delegate: SliverChildBuilderDelegate(
+        //           (context, index) => const CustomBookItem(bookModel: ,),
+        //       childCount: 15,  // Number of items in the BestSellerListView
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

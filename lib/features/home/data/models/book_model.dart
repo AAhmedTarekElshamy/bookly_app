@@ -24,8 +24,8 @@ class BookModel {
     this.searchInfo,
   });
 
-  factory BookModel.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
-  Map<String, dynamic> toJson() => _$BookToJson(this);
+  factory BookModel.fromJson(Map<String, dynamic> json) => _$BookModelFromJson(json);
+  Map<String, dynamic> toJson() => _$BookModelToJson(this);
 }
 
 @JsonSerializable()
@@ -48,6 +48,8 @@ class VolumeInfo {
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
+  final double? averageRating;
+  final int? ratingsCount;
 
   VolumeInfo({
     this.title,
@@ -68,10 +70,42 @@ class VolumeInfo {
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
+    this.averageRating,
+    this.ratingsCount,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => _$VolumeInfoFromJson(json);
   Map<String, dynamic> toJson() => _$VolumeInfoToJson(this);
+}
+
+@JsonSerializable()
+class SaleInfo {
+  final String? country;
+  final String? saleability;
+  final bool? isEbook;
+  final ListPrice? listPrice;
+
+  SaleInfo({
+    this.country,
+    this.saleability,
+    this.isEbook,
+    this.listPrice,
+  });
+
+  factory SaleInfo.fromJson(Map<String, dynamic> json) => _$SaleInfoFromJson(json);
+  Map<String, dynamic> toJson() => _$SaleInfoToJson(this);
+}
+
+@JsonSerializable()
+class ListPrice {
+  final double? amount;
+
+  ListPrice({
+    this.amount,
+  });
+
+  factory ListPrice.fromJson(Map<String, dynamic> json) => _$ListPriceFromJson(json);
+  Map<String, dynamic> toJson() => _$ListPriceToJson(this);
 }
 
 @JsonSerializable()
@@ -131,22 +165,6 @@ class ImageLinks {
 }
 
 @JsonSerializable()
-class SaleInfo {
-  final String? country;
-  final String? saleability;
-  final bool? isEbook;
-
-  SaleInfo({
-    this.country,
-    this.saleability,
-    this.isEbook,
-  });
-
-  factory SaleInfo.fromJson(Map<String, dynamic> json) => _$SaleInfoFromJson(json);
-  Map<String, dynamic> toJson() => _$SaleInfoToJson(this);
-}
-
-@JsonSerializable()
 class AccessInfo {
   final String? country;
   final String? viewability;
@@ -180,7 +198,9 @@ class AccessInfo {
 class Epub {
   final bool? isAvailable;
 
-  Epub({this.isAvailable});
+  Epub({
+    this.isAvailable,
+  });
 
   factory Epub.fromJson(Map<String, dynamic> json) => _$EpubFromJson(json);
   Map<String, dynamic> toJson() => _$EpubToJson(this);
@@ -190,7 +210,9 @@ class Epub {
 class Pdf {
   final bool? isAvailable;
 
-  Pdf({this.isAvailable});
+  Pdf({
+    this.isAvailable,
+  });
 
   factory Pdf.fromJson(Map<String, dynamic> json) => _$PdfFromJson(json);
   Map<String, dynamic> toJson() => _$PdfToJson(this);
@@ -200,7 +222,9 @@ class Pdf {
 class SearchInfo {
   final String? textSnippet;
 
-  SearchInfo({this.textSnippet});
+  SearchInfo({
+    this.textSnippet,
+  });
 
   factory SearchInfo.fromJson(Map<String, dynamic> json) => _$SearchInfoFromJson(json);
   Map<String, dynamic> toJson() => _$SearchInfoToJson(this);

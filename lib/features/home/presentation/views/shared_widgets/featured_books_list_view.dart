@@ -24,7 +24,7 @@ class FeaturedBooksListView extends StatelessWidget {
               imgUrl:
                   state.books[index].volumeInfo!.imageLinks?.thumbnail ?? '',
             ),
-            itemCount: 5,
+            itemCount: state.books.length,
           ),
         );
       } else if (state is LoadingState) {

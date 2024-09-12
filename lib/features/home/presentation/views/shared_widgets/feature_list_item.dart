@@ -8,15 +8,18 @@ class FeatureListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
      // height:MediaQuery.of(context).size.height*0.3,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: AspectRatio(
-          aspectRatio: aspectRatioNumber ?? 2.7/4,
-          child:CachedNetworkImage(
-            imageUrl:imgUrl,
-            fit: BoxFit.fill,
-            placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+      child: Padding(
+        padding: const EdgeInsets.only(right: 12.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: AspectRatio(
+            aspectRatio: aspectRatioNumber ?? 2.7/4,
+            child:CachedNetworkImage(
+              imageUrl:imgUrl,
+              fit: BoxFit.fill,
+              placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
         ),
       ),
