@@ -1,11 +1,12 @@
+import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utility/styles.dart';
 import 'book_action.dart';
 import 'feature_list_item.dart';
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, });
+  //final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -13,7 +14,7 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.27),
-          child: const FeatureListViewItem(),
+          child:  const FeatureListViewItem(imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbJr9k6fMMk0K-05Uw7_kzLIwUz51yYzJ1QA&s',),
         ),
         const SizedBox(
           height: 30,
@@ -65,10 +66,10 @@ class BookDetailsSection extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
-        BookAction(),
+        const BookAction(),
       ],
     );
   }

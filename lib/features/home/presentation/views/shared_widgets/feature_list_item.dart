@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 class FeatureListViewItem extends StatelessWidget {
-  const FeatureListViewItem({super.key, this.aspectRatioNumber});
+  const FeatureListViewItem({super.key, this.aspectRatioNumber, required this.imgUrl});
   final double? aspectRatioNumber;
+  final String imgUrl;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -13,8 +14,8 @@ class FeatureListViewItem extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
 
-              image: const DecorationImage(
-                  image: AssetImage('lib/assets/images/test_list_Item.png'),
+              image:  DecorationImage(
+                  image: NetworkImage(imgUrl),
                   fit: BoxFit.fill
               )
           ),

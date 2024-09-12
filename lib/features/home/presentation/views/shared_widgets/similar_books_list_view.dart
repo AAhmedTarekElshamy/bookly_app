@@ -10,7 +10,7 @@ class SimilarBooksListView extends StatelessWidget {
       height:MediaQuery.of(context).size.height*0.15 ,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context,index)=> const FeatureListViewItem(aspectRatioNumber:2.9/4 ,),
+        itemBuilder: (context,index)=> const FeatureListViewItem(aspectRatioNumber:2.9/4, imgUrl: '' ,),
         itemCount: 15,
       ),
     );

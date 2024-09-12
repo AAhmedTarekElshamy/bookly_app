@@ -18,7 +18,7 @@ class BookDetailsViewBody extends StatelessWidget {
             child: Center(
               child: Column(
                 children: [
-                  BookDetailsSection(),
+                  BookDetailsSection( ),
 
                   SizedBox(
                     height: 33,

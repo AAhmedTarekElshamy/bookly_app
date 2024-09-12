@@ -4,9 +4,9 @@ abstract class FeaturedBooksStates{}
 class FeaturedBooksInitial  extends FeaturedBooksStates{}
 class LoadingState extends FeaturedBooksStates{}
 class SuccessState extends FeaturedBooksStates{
-  final List<BookModel>list;
+  final List<BookModel>books;
 
-  SuccessState({required this.list});
+  SuccessState({required this.books});
 }
 class FailureState extends FeaturedBooksStates{
   final String errorMsg;
