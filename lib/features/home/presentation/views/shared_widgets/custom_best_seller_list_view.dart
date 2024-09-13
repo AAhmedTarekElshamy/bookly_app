@@ -19,15 +19,17 @@ class BestSellerListView extends StatelessWidget {
           //Expanded(
          // height: MediaQuery.of(context).size.height * 0.40,
          // child:
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.40,
-            child: ListView.builder(
-              shrinkWrap: false,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) =>   CustomBookItem(bookModel:state.books[index],),
-              itemCount: state.books.length,
+          SafeArea(
+            child: SizedBox(
+             // height: MediaQuery.of(context).size.height * 0.40,
+              child: ListView.builder(
+                shrinkWrap: false,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) =>   CustomBookItem(bookModel:state.books[index],),
+                itemCount: state.books.length,
 
-                    ),
+                      ),
+            ),
           );
       } else if (state is NewestBooksFailure) {
         return CustomErrorMsg(

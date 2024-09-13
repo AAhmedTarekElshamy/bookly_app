@@ -19,7 +19,7 @@ class HomeRepoImp extends HomeRepo {
     try {
       // Fetch data from API
       var data = await apiService.get(
-          endPoint: 'volumes?q=programming&filter=free-ebooks&orderBy=newest');
+          endPoint: 'volumes?q=computer science&filter=free-ebooks&orderBy=newest');
       // Initialize list of books
       List<BookModel> books = [];
       // Parse books from the response
@@ -42,6 +42,28 @@ class HomeRepoImp extends HomeRepo {
     try {
       List<BookModel> books = [];
       var data = await apiService.get(endPoint:'volumes?q=programming&filter=free-ebooks');
+
+      if (data != null && data['items'] != null) { // Using null-aware operator to check if 'items' exists
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item ?? {}));
+        }
+      }
+
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.DioException(e));
+      } else {
+        return Left(ServerFailure(errorMsg: e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilartBooks({required String category}) async {
+    try {
+      List<BookModel> books = [];
+      var data = await apiService.get(endPoint:'volumes?q=programming&Sorting=relevance&filter=free-ebooks');
 
       if (data != null && data['items'] != null) { // Using null-aware operator to check if 'items' exists
         for (var item in data['items']) {
