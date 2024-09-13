@@ -13,7 +13,8 @@ class CustomBookItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kbookDetailsView);
+        GoRouter.of(context).push(AppRouter.kbookDetailsView,extra: bookModel);
+
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
