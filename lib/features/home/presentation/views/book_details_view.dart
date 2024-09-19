@@ -3,6 +3,7 @@ import 'package:bookly_app/features/home/presentation/manager/similar_books_cubi
 import 'package:bookly_app/features/home/presentation/views/shared_widgets/book_details_view-body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../constants.dart';
 
@@ -21,13 +22,17 @@ class _BookDetailsViewState extends State<BookDetailsView> {
     BlocProvider.of<SimilarBooksCubit>(context).fetchSimilartBooks(category: widget.bookModel.volumeInfo!.categories![0]);
     super.initState();
   }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kPrimaryColor,
         title: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
           icon: const Icon(
             Icons.close,
             size: 28,
@@ -42,7 +47,9 @@ class _BookDetailsViewState extends State<BookDetailsView> {
               ))
         ],
       ),
-      body: const BookDetailsViewBody(),
+      body:   BookDetailsViewBody(
+        bookModel:widget.bookModel ,
+      ),
     );
   }
 }

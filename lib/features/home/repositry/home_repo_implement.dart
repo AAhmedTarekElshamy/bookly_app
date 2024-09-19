@@ -15,7 +15,7 @@ class HomeRepoImp extends HomeRepo {
   HomeRepoImp({required this.apiService});
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
+  Future<Either<Failure,List<BookModel>>> fetchNewestBooks() async {
     try {
       // Fetch data from API
       var data = await apiService.get(

@@ -4,20 +4,18 @@ import 'package:dartz/dartz.dart';
 
 import '../../../data/models/book_model.dart';
 import 'featured_books_states.dart';
-class FeaturedBooksCubit extends Cubit<FeaturedBooksStates>{
-  FeaturedBooksCubit({required this.homeRepo}):  super(FeaturedBooksInitial()) ;
+
+class FeaturedBooksCubit extends Cubit<FeaturedBooksStates> {
+  FeaturedBooksCubit({required this.homeRepo}) : super(FeaturedBooksInitial());
   final HomeRepo homeRepo;
-  Future<void>fetchFeaturedBooks()async{
+  Future<void> fetchFeaturedBooks() async {
     emit(LoadingState());
     //List<BookModel> FeaturedBooksList
-    var result  =await  homeRepo.fetchFeaturedBooks() ;
+    var result = await homeRepo.fetchFeaturedBooks();
     result.fold((failure) {
-      emit(FailureState(errorMsg:failure.errorMsg
-     ));
-      }, (books) {
-     emit(SuccessState( books: books));
-
-
+      emit(FailureState(errorMsg: failure.errorMsg));
+    }, (books) {
+      emit(SuccessState(books: books));
     });
   }
 }

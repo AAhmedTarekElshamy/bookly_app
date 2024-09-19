@@ -5,8 +5,8 @@ import '../../../../../core/utility/styles.dart';
 import 'book_action.dart';
 import 'feature_list_item.dart';
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key, });
-  //final BookModel bookModel;
+  const BookDetailsSection({super.key, required this.bookModel, });
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -14,13 +14,16 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.27),
-          child:  const FeatureListViewItem(imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbJr9k6fMMk0K-05Uw7_kzLIwUz51yYzJ1QA&s',),
+          child:    FeatureListViewItem(imgUrl:bookModel.volumeInfo?.imageLinks?.thumbnail ??'',),
         ),
         const SizedBox(
           height: 30,
         ),
         Text(
-          'The Jungle book',
+          bookModel.volumeInfo?.title ??'N/A',
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.bold,
           ),
@@ -31,7 +34,9 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            'Rudyard Kipling',
+            bookModel.volumeInfo?.authors![0] ??'N/A',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w500,
@@ -41,24 +46,24 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const Center(
+         Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 '⭐',
                 style: TextStyle(fontSize: 14),
               ),
               Text(
-                ' 4.8 ',
-                style: TextStyle(
-                    color: Colors.white,
+               '${bookModel.volumeInfo?.averageRating ?? 0 }' ,
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                     fontSize: 18),
               ),
-              Text(
-                ' (2243) ',
-                style: TextStyle(
+               Text(
+                 '\t(${bookModel.volumeInfo?.ratingsCount ?? 0 })',
+                style: const TextStyle(
                     color: Color(0xff848293),
                     fontWeight: FontWeight.bold,
                     fontSize: 16),
@@ -69,7 +74,7 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        const BookAction(),
+          BookAction(bookModel: bookModel,),
       ],
     );
   }

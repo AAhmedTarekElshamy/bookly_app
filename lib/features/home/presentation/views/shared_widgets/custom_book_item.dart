@@ -74,7 +74,7 @@ class CustomBookItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '${bookModel.saleInfo?.listPrice?.amount?.toStringAsFixed(2) ?? 'N/A'} €', // Book price
+                        '${bookModel.saleInfo?.listPrice?.amount?.toStringAsFixed(2) ?? 'free'} €', // Book price
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 22,
